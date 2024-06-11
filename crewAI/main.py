@@ -1,25 +1,13 @@
 import os
 from crewai import Task
 from crewai import Crew, Process
-from traceloop.sdk import Traceloop
-from traceloop.sdk.decorators import workflow
-
+from crewai import Agent
+from crewai_tools import SerperDevTool
 
 # os.environ["SERPER_API_KEY"] = "xxxx"  # serper.dev API key
 # os.environ["OPENAI_API_KEY"] = "xxxx"
 
-
-
-from crewai import Agent
-from crewai_tools import SerperDevTool
-
 search_tool = SerperDevTool()
-
-Traceloop.init(
-  app_name="crewai_generation_service",
-  disable_batch=True,
-)
-
 
 # Creating a senior researcher agent with memory and verbose mode
 researcher = Agent(
@@ -92,7 +80,6 @@ crew = Crew(
 )
 
 # Starting the task execution process with enhanced feedback
-@workflow(name="crewai_generation_service")
 def suggest_answers(topic):
     # Call crew.kickoff with the provided topic
     result = crew.kickoff(inputs={'topic': topic})
