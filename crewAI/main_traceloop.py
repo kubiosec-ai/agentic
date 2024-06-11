@@ -1,17 +1,13 @@
 import os
 from crewai import Task
 from crewai import Crew, Process
+from crewai import Agent
+from crewai_tools import SerperDevTool
 from traceloop.sdk import Traceloop
 from traceloop.sdk.decorators import workflow
 
-
 # os.environ["SERPER_API_KEY"] = "xxxx"  # serper.dev API key
 # os.environ["OPENAI_API_KEY"] = "xxxx"
-
-
-
-from crewai import Agent
-from crewai_tools import SerperDevTool
 
 search_tool = SerperDevTool()
 
