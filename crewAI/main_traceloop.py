@@ -96,4 +96,4 @@ def suggest_answers(topic):
     print(result)
 
 # Example usage
-suggest_answers('Belgian elections on 9th june 2024')
+suggest_answers('pros and cons on AI')
